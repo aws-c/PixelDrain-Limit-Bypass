@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://pixeldrain.com/res/img/pixeldrain_32.png" type="image/x-icon">
+    <title>PixelDrain Limit Bypass</title>
+	    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="PixelDrain Limit Bypass">
+    <meta property="og:description" content="bypass the PixelDrain links, our Bypasser tool changes the original PixelDrain URLs into Our Servers URL.">
+    <meta property="og:url" content="https://pixeldrain-bypass.cybar.xyz">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PixelDrain Limit Bypass">
+	
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #212530;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container, .blog, .footer {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #2a2d37;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h1, h2 {
+            color: #e0e0e0;
+        }
+
+        textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            border: none;
+            font-size: 16px;
+        }
+
+        textarea {
+            background-color: #333842;
+            color: #ffffff;
+            resize: vertical;
+            height: 100px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .blog p {
+            text-align: left;
+            line-height: 1.6;
+            color: #bbbbbb;
+        }
+
+        .footer {
+            font-size: 14px;
+            color: #a0a0a0;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .container, .blog, .footer {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blog">
+        <h2>What is PixelDrain?</h2>
+        <p>Pixeldrain is a free file sharing service, you can upload any file and you will be given a shareable link right away. pixeldrain also supports previews for images, videos, audio, PDFs and much more.</p>
+
+        <h2>How We Bypass</h2>
+        <p>To bypass the PixelDrain links, our Bypasser tool changes the original PixelDrain URLs into Our Servers URL.</p>
+    </div>
+    <div class="container">
+        <h1>PixelDrain Limit Bypass</h1>
+        <textarea id="inputUrls" placeholder="Enter URLs here, one per line..."></textarea>
+        <button id="convertButton">Convert URLs</button>
+        <textarea id="outputUrls" placeholder="Converted URLs will appear here..." readonly></textarea>
+        <button id="saveButton" style="display: none;">Save as Text File</button>
+    </div>
+ <div class="footer">
+        Powered by <a href="https://gamedrive.org" target="_blank" style="color: #00a9f7;">GameDrive.Org</a>
+    </div>
+
+    <script>
+        document.getElementById('convertButton').addEventListener('click', function() {
+            let inputUrls = document.getElementById('inputUrls').value.split('\n');
+            let outputUrls = inputUrls.map(url => {
+                if(url.trim() === '') return null; // Ignore blank lines
+                let match = url.match(/^https:\/\/pixeldrain\.com\/u\/(.+)$/);
+                return match ? `https://pd.cybar.xyz/${match[1]}` : 'Invalid URL';
+            }).filter(url => url !== null); // Remove null values representing blank lines
+            
+            let outputText = outputUrls.join('\n');
+            document.getElementById('outputUrls').value = outputText;
+
+            if(outputText.trim() !== '') {
+                document.getElementById('saveButton').style.display = 'block';
+            } else {
+                document.getElementById('saveButton').style.display = 'none';
+            }
+        });
+
+        document.getElementById('saveButton').addEventListener('click', function() {
+            let outputText = document.getElementById('outputUrls').value;
+            let blob = new Blob([outputText], { type: 'text/plain' });
+            let url = URL.createObjectURL(blob);
+            
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = 'converted-urls.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
