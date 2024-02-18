@@ -3,16 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="https://pixeldrain.com/res/img/pixeldrain_32.png" type="image/x-icon">
     <title>PixelDrain Limit Bypass</title>
-	    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="PixelDrain Limit Bypass">
-    <meta property="og:description" content="bypass the PixelDrain links, our Bypasser tool changes the original PixelDrain URLs into Our Servers URL.">
-    <meta property="og:url" content="https://pixeldrain-bypass.cybar.xyz">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="PixelDrain Limit Bypass">
-	
     <style>
         body, html {
             margin: 0;
@@ -67,6 +60,11 @@
             background-color: #45a049;
         }
 
+        .neon-sky {
+            background-color: #00a9f7;
+            box-shadow: 0 0 20px #00a9f7;
+        }
+
         .blog p {
             text-align: left;
             line-height: 1.6;
@@ -97,39 +95,53 @@
     <div class="container">
         <h1>PixelDrain Limit Bypass</h1>
         <textarea id="inputUrls" placeholder="Enter URLs here, one per line..."></textarea>
-        <button id="convertButton">Convert URLs</button>
+        <button id="convertButton">🔄Convert URLs</button>
         <textarea id="outputUrls" placeholder="Converted URLs will appear here..." readonly></textarea>
-        <button id="saveButton" style="display: none;">Save as Text File</button>
+        <button id="copyButton" class="neon-sky" style="display: none;">🔗Copy URL</button>
+        <button id="saveButton" style="display: none;">📄Save as Text File</button>
     </div>
- <div class="footer">
+    <div class="footer">
         Powered by <a href="https://gamedrive.org" target="_blank" style="color: #00a9f7;">GameDrive.Org</a>
     </div>
 
     <script>
-        document.getElementById('convertButton').addEventListener('click', function() {
-            let inputUrls = document.getElementById('inputUrls').value.split('\n');
-            let outputUrls = inputUrls.map(url => {
-                if(url.trim() === '') return null; // Ignore blank lines
-                let match = url.match(/^https:\/\/pixeldrain\.com\/u\/(.+)$/);
-                return match ? `https://pd.cybar.xyz/${match[1]}` : 'Invalid URL';
-            }).filter(url => url !== null); // Remove null values representing blank lines
-            
-            let outputText = outputUrls.join('\n');
-            document.getElementById('outputUrls').value = outputText;
+        const convertButton = document.getElementById('convertButton');
+        const copyButton = document.getElementById('copyButton');
+        const saveButton = document.getElementById('saveButton');
+        const inputUrls = document.getElementById('inputUrls');
+        const outputUrls = document.getElementById('outputUrls');
 
-            if(outputText.trim() !== '') {
-                document.getElementById('saveButton').style.display = 'block';
+        convertButton.addEventListener('click', function() {
+            const urls = inputUrls.value.split('\n').map(url => url.trim()).filter(Boolean);
+            const convertedUrls = urls.map(url => {
+                const match = url.match(/^https:\/\/pixeldrain\.com\/u\/(.+)$/);
+                return match ? `https://pd.cybar.xyz/${match[1]}` : 'Invalid URL';
+            });
+
+            const outputText = convertedUrls.join('\n');
+            outputUrls.value = outputText;
+
+            if (outputText.trim() !== '') {
+                saveButton.style.display = 'block';
+                copyButton.style.display = 'block';
             } else {
-                document.getElementById('saveButton').style.display = 'none';
+                saveButton.style.display = 'none';
+                copyButton.style.display = 'none';
             }
         });
 
-        document.getElementById('saveButton').addEventListener('click', function() {
-            let outputText = document.getElementById('outputUrls').value;
-            let blob = new Blob([outputText], { type: 'text/plain' });
-            let url = URL.createObjectURL(blob);
+        copyButton.addEventListener('click', function() {
+            outputUrls.select();
+            document.execCommand('copy');
+            alert('URLs copied to clipboard!');
+        });
+
+        saveButton.addEventListener('click', function() {
+            const outputText = outputUrls.value;
+            const blob = new Blob([outputText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
             
-            let a = document.createElement('a');
             a.href = url;
             a.download = 'converted-urls.txt';
             document.body.appendChild(a);
