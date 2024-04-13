@@ -118,24 +118,30 @@
         const inputUrls = document.getElementById('inputUrls');
         const outputUrls = document.getElementById('outputUrls');
 
-        convertButton.addEventListener('click', function() {
-            const urls = inputUrls.value.split('\n').map(url => url.trim()).filter(Boolean);
-            const convertedUrls = urls.map(url => {
-                const match = url.match(/^https:\/\/pixeldrain\.com\/u\/(.+)$/);
-                return match ? `https://pd.cybar.xyz/${match[1]}` : 'Invalid URL';
-            });
+    convertButton.addEventListener('click', function() {
+    const urls = inputUrls.value.split('\n').map(url => url.trim()).filter(Boolean);
+    const convertedUrls = urls.map(url => {
+        // Check if the URL matches any of the supported formats and extract the file ID
+        let match = url.match(/^https?:\/\/(?:pixeldra\.in|pixeldrain\.com)(?:\/api\/file\/|\/u\/)([^?]+)/);
+        if (match) {
+            return `https://pd.cybar.xyz/${match[1]}`;
+        } else {
+            return 'Invalid URL';
+        }
+    });
 
-            const outputText = convertedUrls.join('\n');
-            outputUrls.value = outputText;
+    const outputText = convertedUrls.join('\n');
+    outputUrls.value = outputText;
 
-            if (outputText.trim() !== '') {
-                saveButton.style.display = 'block';
-                copyButton.style.display = 'block';
-            } else {
-                saveButton.style.display = 'none';
-                copyButton.style.display = 'none';
-            }
-        });
+    if (outputText.trim() !== '') {
+        saveButton.style.display = 'block';
+        copyButton.style.display = 'block';
+    } else {
+        saveButton.style.display = 'none';
+        copyButton.style.display = 'none';
+    }
+});
+
 
         copyButton.addEventListener('click', function() {
             outputUrls.select();
