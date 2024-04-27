@@ -122,13 +122,13 @@
     const urls = inputUrls.value.split('\n').map(url => url.trim()).filter(Boolean);
     const convertedUrls = urls.map(url => {
         // Check if the URL matches any of the supported formats and extract the file ID
-        let match = url.match(/^https?:\/\/(?:pixeldra\.in|pixeldrain\.com)(?:\/api\/file\/|\/u\/)([^?]+)/);
+        let match = url.match(/^https?:\/\/(?:pixeldra\.in|pixeldrain\.com)(?:\/api\/file\/|\/u\/)([^?\s]+)/);
         if (match) {
             return `https://pd.cybar.xyz/${match[1]}`;
         } else {
-            return 'Invalid URL';
+            return ''; // Return an empty string if the URL doesn't match
         }
-    });
+    }).filter(Boolean); // Filter out empty strings
 
     const outputText = convertedUrls.join('\n');
     outputUrls.value = outputText;
@@ -140,8 +140,7 @@
         saveButton.style.display = 'none';
         copyButton.style.display = 'none';
     }
-});
-
+      });
 
         copyButton.addEventListener('click', function() {
             outputUrls.select();
