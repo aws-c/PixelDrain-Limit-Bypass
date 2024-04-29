@@ -111,56 +111,56 @@
         Powered by <a href="https://gamedrive.org" target="_blank" style="color: #00a9f7;">GameDrive.Org</a>
     </div>
 
-    <script>
-        const convertButton = document.getElementById('convertButton');
-        const copyButton = document.getElementById('copyButton');
-        const saveButton = document.getElementById('saveButton');
-        const inputUrls = document.getElementById('inputUrls');
-        const outputUrls = document.getElementById('outputUrls');
+<script>
+    const convertButton = document.getElementById('convertButton');
+    const copyButton = document.getElementById('copyButton');
+    const saveButton = document.getElementById('saveButton');
+    const inputUrls = document.getElementById('inputUrls');
+    const outputUrls = document.getElementById('outputUrls');
 
     convertButton.addEventListener('click', function() {
-    const urls = inputUrls.value.split('\n').map(url => url.trim()).filter(Boolean);
-    const convertedUrls = urls.map(url => {
-        // Check if the URL matches any of the supported formats and extract the file ID
-        let match = url.match(/^https?:\/\/(?:pixeldra\.in|pixeldrain\.com)(?:\/api\/file\/|\/u\/)([^?\s]+)/);
-        if (match) {
-            return `https://pd.cybar.xyz/${match[1]}`;
+        const urls = inputUrls.value.split('\n').map(url => url.trim()).filter(Boolean);
+        const convertedUrls = urls.map(url => {
+            // Check if the URL matches any of the supported formats and extract the file ID
+            let match = url.match(/^https?:\/\/(?:pixeldra\.in|pixeldrain\.com|pixeldrain\.net)(?:\/api\/file\/|\/u\/)([^?\s]+)/);
+            if (match) {
+                return `https://pd.cybar.xyz/${match[1]}`;
+            } else {
+                return ''; // Return an empty string if the URL doesn't match
+            }
+        }).filter(Boolean); // Filter out empty strings
+
+        const outputText = convertedUrls.join('\n');
+        outputUrls.value = outputText;
+
+        if (outputText.trim() !== '') {
+            saveButton.style.display = 'block';
+            copyButton.style.display = 'block';
         } else {
-            return ''; // Return an empty string if the URL doesn't match
+            saveButton.style.display = 'none';
+            copyButton.style.display = 'none';
         }
-    }).filter(Boolean); // Filter out empty strings
+    });
 
-    const outputText = convertedUrls.join('\n');
-    outputUrls.value = outputText;
+    copyButton.addEventListener('click', function() {
+        outputUrls.select();
+        document.execCommand('copy');
+        alert('URLs copied to clipboard!');
+    });
 
-    if (outputText.trim() !== '') {
-        saveButton.style.display = 'block';
-        copyButton.style.display = 'block';
-    } else {
-        saveButton.style.display = 'none';
-        copyButton.style.display = 'none';
-    }
-      });
-
-        copyButton.addEventListener('click', function() {
-            outputUrls.select();
-            document.execCommand('copy');
-            alert('URLs copied to clipboard!');
-        });
-
-        saveButton.addEventListener('click', function() {
-            const outputText = outputUrls.value;
-            const blob = new Blob([outputText], { type: 'text/plain' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            
-            a.href = url;
-            a.download = 'converted-urls.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        });
-    </script>
+    saveButton.addEventListener('click', function() {
+        const outputText = outputUrls.value;
+        const blob = new Blob([outputText], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        
+        a.href = url;
+        a.download = 'converted-urls.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    });
+</script>
 </body>
 </html>
