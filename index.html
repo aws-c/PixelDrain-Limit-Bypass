@@ -1,166 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://pixeldrain.com/res/img/pixeldrain_32.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="https://pixeldrain.com/res/img/pixeldrain_32.png"
+      type="image/x-icon"
+    />
     <title>PixelDrain Limit Bypass</title>
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background-color: #212530;
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        background-color: #212530;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-        .container, .blog, .footer {
-            width: 98%;
-            max-width: 800px;
-            margin: 20px;
-            padding: 20px;
-            background-color: #2a2d37;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-        }
+      .container,
+      .blog,
+      .footer {
+        width: 98%;
+        max-width: 800px;
+        margin: 20px;
+        padding: 20px;
+        background-color: #2a2d37;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
 
-        h1, h2 {
-            color: #e0e0e0;
-        }
+      h1,
+      h2 {
+        color: #e0e0e0;
+      }
 
-        textarea, button {
-            width: 98%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 4px;
-            border: none;
-            font-size: 16px;
-        }
+      textarea,
+      input[type="text"],
+      button {
+        width: 98%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        border: none;
+        font-size: 16px;
+      }
 
-        textarea {
-            background-color: #333842;
-            color: #ffffff;
-            resize: vertical;
-            height: 100px;
-        }
+      textarea {
+        background-color: #333842;
+        color: #ffffff;
+        resize: vertical;
+        height: 200px;
+      }
 
-        button {
-            background-color: #4caf50;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+      input[type="text"] {
+        background-color: #333842;
+        color: #ffffff;
+        border: 2px solid #00a9f7;
+        outline: none;
+      }
 
-        button:hover {
-            background-color: #45a049;
-        }
+      input[type="text"]:focus {
+        border-color: #00fffb;
+      }
 
-        .neon-sky {
-            background-color: #00a9f7;
-            box-shadow: 0 0 20px #00a9f7;
-        }
+      button {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
 
-        .blog p {
-            text-align: left;
-            line-height: 1.6;
-            color: #bbbbbb;
-        }
+      button:hover {
+        background-color: #45a049;
+      }
 
+      #getFilesButton {
+        background-color: #229cff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .neon-sky {
+        background-color: #00a9f7;
+        box-shadow: 0 0 20px #00a9f7;
+      }
+
+      .blog p {
+        text-align: left;
+        line-height: 1.6;
+        color: #bbbbbb;
+      }
+
+      .footer {
+        font-size: 14px;
+        color: #a0a0a0;
+        text-align: center;
+      }
+
+      @media screen and (max-width: 600px) {
+        .container,
+        .blog,
         .footer {
-            font-size: 14px;
-            color: #a0a0a0;
-            text-align: center;
+          border-radius: 0;
         }
-
-        @media screen and (max-width: 600px) {
-            .container, .blog, .footer {
-                border-radius: 0;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="blog">
-        <h2>How To Use Properly?</h2>
-<p>If you're aiming for high-speed downloads, it's advisable to utilize download managers such as <span style="color: #00fffb;"><b>JDownloader 2, FDM, IDM, etc</b></span> as internet browsers lack support for multiple connections.</p>
-
-<p>Furthermore, in <span style="color: red;"><b>JDownloader 2</b></span>, the Max.Chunks per Download (multiple connections) setting <b><span style="color: #fcff01;">Defaults to 1</span></b>. To enhance download speeds, you should adjust this setting.</p>
-
-<p>To do so, navigate to <b><span style="color: #ff00fe;">Settings</span> </b>=&gt; <b><span style="color: #ff00fe;">General in JDownloader 2</span></b>, and ensure that the number in the Max.Chunks per Download is <span style="color: #ff00a6;"><b>Set to a minimum of 4</b></span> (or up to the maximum value of 20) for optimal performance.</p>
-
-<p>In other download managers, the default number of connections may vary, so you may want to consider increasing this number accordingly.</p>
-
-
-        <h2>How We Bypass</h2>
-        <p>To bypass the PixelDrain links, our Bypasser tool changes the original PixelDrain URLs into Our Servers URL.</p>
+      <h2>How To Use Properly?</h2>
+      <p>
+        If you're aiming for high-speed downloads, it's advisable to utilize
+        download managers such as
+        <span style="color: #00fffb"><b>JDownloader 2, FDM, IDM, etc</b></span>
+        as internet browsers lack support for multiple connections.
+      </p>
+      <p>
+        Furthermore, in <span style="color: red"><b>JDownloader 2</b></span
+        >, the Max.Chunks per Download (multiple connections) setting
+        <b><span style="color: #fcff01">Defaults to 1</span></b
+        >. To enhance download speeds, you should adjust this setting.
+      </p>
+      <p>
+        To do so, navigate to
+        <b><span style="color: #ff00fe">Settings</span> </b>=&gt;
+        <b><span style="color: #ff00fe">General in JDownloader 2</span></b
+        >, and ensure that the number in the Max.Chunks per Download is
+        <span style="color: #ff00a6"><b>Set to a minimum of 4</b></span> (or up
+        to the maximum value of 20) for optimal performance.
+      </p>
+      <p>
+        In other download managers, the default number of connections may vary,
+        so you may want to consider increasing this number accordingly.
+      </p>
+      <h2>How We Bypass</h2>
+      <p>
+        To bypass the PixelDrain links, our Bypasser tool changes the original
+        PixelDrain URLs into Our Servers URL.
+      </p>
     </div>
     <div class="container">
-        <h1>PixelDrain Limit Bypass</h1>
-        <textarea id="inputUrls" placeholder="Enter URLs here, one per line..."></textarea>
-        <button id="convertButton">🔄Convert URLs</button>
-        <textarea id="outputUrls" placeholder="Converted URLs will appear here..." readonly></textarea>
-        <button id="copyButton" class="neon-sky" style="display: none;">🔗Copy URL</button>
-        <button id="saveButton" style="display: none;">📄Save as Text File</button>
+      <h1>PixelDrain Limit Bypass</h1>
+      <input
+        type="text"
+        id="albumUrl"
+        placeholder="https://pixeldrain.com/l/your_album_id"
+        size="50"
+      />
+      <button id="getFilesButton">📥Get Files</button>
+
+      <h2>Extracted File URLs/Input URLs</h2>
+      <textarea
+        id="inputUrls"
+        placeholder="Enter URLs here, one per line..."
+      ></textarea>
+      <button id="convertButton">🔄 Convert URLs</button>
+      <textarea
+        id="outputUrls"
+        placeholder="Converted URLs will appear here..."
+        readonly
+      ></textarea>
+      <button id="copyButton" class="neon-sky" style="display: none">
+        🔗 Copy URL
+      </button>
+      <button id="saveButton" style="display: none">
+        📄 Save as Text File
+      </button>
     </div>
     <div class="footer">
-        Powered by <a href="https://gamedrive.org" target="_blank" style="color: #00a9f7;">GameDrive.Org</a>
+      Powered by
+      <a href="https://gamedrive.org" target="_blank" style="color: #00a9f7"
+        >GameDrive.Org</a
+      >
     </div>
 
-<script>
-    const convertButton = document.getElementById('convertButton');
-    const copyButton = document.getElementById('copyButton');
-    const saveButton = document.getElementById('saveButton');
-    const inputUrls = document.getElementById('inputUrls');
-    const outputUrls = document.getElementById('outputUrls');
-
-    convertButton.addEventListener('click', function() {
-        const urls = inputUrls.value.split('\n').map(url => url.trim()).filter(Boolean);
-        const convertedUrls = urls.map(url => {
-            // Check if the URL matches any of the supported formats and extract the file ID
-            let match = url.match(/^https?:\/\/(?:pixeldra\.in|pixeldrain\.com|pixeldrain\.net)(?:\/api\/file\/|\/u\/)([^?\s]+)/);
-            if (match) {
-                return `https://pd.cybar.xyz/${match[1]}`;
-            } else {
-                return ''; // Return an empty string if the URL doesn't match
-            }
-        }).filter(Boolean); // Filter out empty strings
-
-        const outputText = convertedUrls.join('\n');
-        outputUrls.value = outputText;
-
-        if (outputText.trim() !== '') {
-            saveButton.style.display = 'block';
-            copyButton.style.display = 'block';
-        } else {
-            saveButton.style.display = 'none';
-            copyButton.style.display = 'none';
-        }
-    });
-
-    copyButton.addEventListener('click', function() {
-        outputUrls.select();
-        document.execCommand('copy');
-        alert('URLs copied to clipboard!');
-    });
-
-    saveButton.addEventListener('click', function() {
-        const outputText = outputUrls.value;
-        const blob = new Blob([outputText], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        
-        a.href = url;
-        a.download = 'converted-urls.txt';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-    });
-</script>
-</body>
+    <script>
+ function _0x293f(_0x4ec620,_0x147ada){const _0x1b6986=_0x1b69();return _0x293f=function(_0x293fc7,_0x542f31){_0x293fc7=_0x293fc7-0x198;let _0xb20416=_0x1b6986[_0x293fc7];return _0xb20416;},_0x293f(_0x4ec620,_0x147ada);}const _0x3f425f=_0x293f;(function(_0x4fda89,_0x44606a){const _0x6c5671=_0x293f,_0x425b69=_0x4fda89();while(!![]){try{const _0x1f14bd=parseInt(_0x6c5671(0x19d))/0x1*(parseInt(_0x6c5671(0x1a9))/0x2)+-parseInt(_0x6c5671(0x1c5))/0x3*(-parseInt(_0x6c5671(0x1b1))/0x4)+-parseInt(_0x6c5671(0x1b2))/0x5*(-parseInt(_0x6c5671(0x1c2))/0x6)+-parseInt(_0x6c5671(0x1a6))/0x7+-parseInt(_0x6c5671(0x1b6))/0x8+-parseInt(_0x6c5671(0x1d1))/0x9*(-parseInt(_0x6c5671(0x1b3))/0xa)+-parseInt(_0x6c5671(0x1aa))/0xb*(parseInt(_0x6c5671(0x1a1))/0xc);if(_0x1f14bd===_0x44606a)break;else _0x425b69['push'](_0x425b69['shift']());}catch(_0x370e7f){_0x425b69['push'](_0x425b69['shift']());}}}(_0x1b69,0xa1d50));function _0x1b69(){const _0x1e9a11=['createElement','URLs\x20copied\x20to\x20clipboard!','hostname','text/plain','addEventListener','inputUrls','5337ghqMQI','download','display','none','select','catch','appendChild','converted-urls.txt','963667pcrORW','block','name','outputUrls','660yiPelA','map','https://pixeldrain.com/api/list/','href','cybar.xyz','1054081pEXuWa','click','body','2WMEbfl','13321uBxqLc','pop','trim','getElementById','copyButton','.cybar.xyz','https://pd.cybar.xyz/','1849440jLydmA','15enPmxr','50XJPnEU','style','convertButton','7593384Fmovsa','https://pixeldrain.com/u/','createObjectURL','includes','filter','execCommand','files','getFilesButton','join','split','match','value','800466MutISK','endsWith','copy','3dQzciL','then','https://crypt.cybar.xyz','json','location','Error:\x20Unable\x20to\x20retrieve\x20album\x20information.'];_0x1b69=function(){return _0x1e9a11;};return _0x1b69();}const convertButton=document[_0x3f425f(0x1ad)](_0x3f425f(0x1b5)),copyButton=document[_0x3f425f(0x1ad)](_0x3f425f(0x1ae)),saveButton=document['getElementById']('saveButton'),inputUrls=document[_0x3f425f(0x1ad)](_0x3f425f(0x1d0)),outputUrls=document[_0x3f425f(0x1ad)](_0x3f425f(0x1a0)),albumUrlInput=document[_0x3f425f(0x1ad)]('albumUrl'),getFilesButton=document[_0x3f425f(0x1ad)](_0x3f425f(0x1bd));function validateAndRedirect(){const _0x4f8190=_0x3f425f,_0x5aa50a=['crypt.cybar.xyz',_0x4f8190(0x1a5)],_0x26cdc2=window[_0x4f8190(0x1c9)][_0x4f8190(0x1cd)];!_0x5aa50a[_0x4f8190(0x1b9)](_0x26cdc2)&&!_0x26cdc2[_0x4f8190(0x1c3)](_0x4f8190(0x1af))&&(window[_0x4f8190(0x1c9)]['href']=_0x4f8190(0x1c7));}validateAndRedirect(),getFilesButton[_0x3f425f(0x1cf)](_0x3f425f(0x1a7),function(){const _0x3d894e=_0x3f425f,_0x140465=albumUrlInput[_0x3d894e(0x1c1)],_0x3f5a7c=_0x140465[_0x3d894e(0x1bf)]('/')[_0x3d894e(0x1ab)]();fetch(_0x3d894e(0x1a3)+_0x3f5a7c)[_0x3d894e(0x1c6)](_0x10fdf7=>_0x10fdf7[_0x3d894e(0x1c8)]())[_0x3d894e(0x1c6)](_0x163b12=>{const _0x5ba751=_0x3d894e;let _0x530b9e='';_0x163b12[_0x5ba751(0x1bc)]?(_0x163b12[_0x5ba751(0x1bc)]['forEach'](_0x561d65=>{const _0x9aeff1=_0x5ba751;_0x530b9e+=_0x9aeff1(0x1b7)+_0x561d65['id']+'\x20'+_0x561d65[_0x9aeff1(0x19f)]+'\x0a';}),inputUrls['value']=_0x530b9e):inputUrls['value']=_0x5ba751(0x1ca);})[_0x3d894e(0x19a)](_0x4b34d7=>{const _0x5e6f79=_0x3d894e;inputUrls[_0x5e6f79(0x1c1)]='Error:\x20'+_0x4b34d7;});}),convertButton[_0x3f425f(0x1cf)](_0x3f425f(0x1a7),function(){const _0x57c1c1=_0x3f425f,_0x3386d2=inputUrls['value']['split']('\x0a')[_0x57c1c1(0x1a2)](_0x42bde4=>_0x42bde4[_0x57c1c1(0x1ac)]())[_0x57c1c1(0x1ba)](Boolean),_0x96bc02=_0x3386d2[_0x57c1c1(0x1a2)](_0x4de0ab=>{const _0x4c6611=_0x57c1c1;let _0xd5ad72=_0x4de0ab[_0x4c6611(0x1c0)](/^https?:\/\/(?:pixeldra\.in|pixeldrain\.com|pixeldrain\.net)\/u\/([^?\s]+)/);return _0xd5ad72?_0x4c6611(0x1b0)+_0xd5ad72[0x1]:'';})[_0x57c1c1(0x1ba)](Boolean),_0x5451d7=_0x96bc02[_0x57c1c1(0x1be)]('\x0a');outputUrls[_0x57c1c1(0x1c1)]=_0x5451d7,_0x5451d7[_0x57c1c1(0x1ac)]()!==''?(saveButton[_0x57c1c1(0x1b4)]['display']='block',copyButton['style'][_0x57c1c1(0x1d3)]=_0x57c1c1(0x19e)):(saveButton['style'][_0x57c1c1(0x1d3)]=_0x57c1c1(0x198),copyButton['style']['display']=_0x57c1c1(0x198));}),copyButton[_0x3f425f(0x1cf)](_0x3f425f(0x1a7),function(){const _0x592005=_0x3f425f;outputUrls[_0x592005(0x199)](),document[_0x592005(0x1bb)](_0x592005(0x1c4)),alert(_0x592005(0x1cc));}),saveButton['addEventListener']('click',function(){const _0x256188=_0x3f425f,_0xccd149=outputUrls[_0x256188(0x1c1)],_0x343224=new Blob([_0xccd149],{'type':_0x256188(0x1ce)}),_0x2c680c=URL[_0x256188(0x1b8)](_0x343224),_0x4df866=document[_0x256188(0x1cb)]('a');_0x4df866[_0x256188(0x1a4)]=_0x2c680c,_0x4df866[_0x256188(0x1d2)]=_0x256188(0x19c),document[_0x256188(0x1a8)][_0x256188(0x19b)](_0x4df866),_0x4df866[_0x256188(0x1a7)](),document['body']['removeChild'](_0x4df866),URL['revokeObjectURL'](_0x2c680c);});
+    </script>
+  </body>
 </html>
