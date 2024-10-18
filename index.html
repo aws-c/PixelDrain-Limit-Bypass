@@ -103,70 +103,54 @@
             }
         }
 
-        /* Popup Ad Styling */
-    #popupAd {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-        backdrop-filter: blur(10px); /* Apply blur effect to the background */
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
+        /* Banner Notification Styling */
+        #bannerNotification {
+            display: flex;
+            justify-content: space-between;
+            background-color: #00a9f7;
+            color: #fff;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            align-items: center;
+        }
 
-    #popupAdContent {
-        background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent dark background */
-        padding: 20px;
-        border-radius: 8px;
-        width: 80%;
-        max-width: 500px;
-        color: #fff;
-        text-align: center;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    }
+        #bannerNotification button {
+            background-color: #e03e3e;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    #closeAdButton {
-        background-color: #e03e3e;
-        border: none;
-        color: white;
-        padding: 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 10px;
-    }
+        #bannerNotification button:hover {
+            background-color: #c02828;
+        }
 
-    #closeAdButton:hover {
-        background-color: #c02828;
-    }
     </style>
 </head>
 <body>
 
-    <!-- Popup Ad -->
-<div id="popupAd">
-    <div id="popupAdContent">
-        <h2>Check out our new site!</h2>
-        <p><strong>Pre-Installed games with high-speed links</strong></p>
-        <p><strong>Features:</strong></p>
-        <ul style="list-style-type: none; padding: 0; text-align: left;">
-            <li>➡️ Multiple FileHost (all interchangeable)</li>
-            <li>➡️ Self-Made Scripts for Shortcut on Desktop and UWP Install</li>
-            <li>➡️ All in parts, 3.9GB</li>
-            <li>➡️ Search via Steam app ID (e.g., 1934680)</li>
-        </ul>
-        <!-- Converted link to a button -->
-        <button id="visitNowButton" onclick="window.open('https://games4u.org', '_blank')" style="background-color: #00a9f7; color: white; padding: 12px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; text-align: center;">
-            Visit Now
-        </button>
-        <button id="closeAdButton">Close</button>
+    <!-- Banner Notification -->
+    <div id="bannerNotification">
+        <div>
+            <h2>Check out our new site for pre-installed games!</h2>
+            <p><strong>Features:</strong></p>
+            <ul style="list-style-type: none; padding: 0; text-align: left;">
+                <li>➡️ Multiple FileHost (interchangeable)</li>
+                <li>➡️ Self-Made Scripts for Desktop Shortcuts and UWP Install</li>
+                <li>➡️ All in parts, 3.9GB</li>
+                <li>➡️ Search via Steam app ID (e.g., 1934680)</li>
+            </ul>
+        </div>
+        <button id="visitNowButton" onclick="window.open('https://games4u.org', '_blank')">Visit Now</button>
+        <button onclick="document.getElementById('bannerNotification').style.display='none'">Close</button>
     </div>
-</div>
-
 
     <div class="container">
         <h1>PixelDrain Limit Bypass</h1>
@@ -193,36 +177,6 @@
     const outputUrls = document.getElementById('outputUrls');
     const albumUrlInput = document.getElementById('albumUrl');
     const getFilesButton = document.getElementById('getFilesButton');
-    const popupAd = document.getElementById('popupAd');
-    const closeAdButton = document.getElementById('closeAdButton');
-
-    // Function to get cookie value
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-    }
-
-    // Function to set cookie
-    function setCookie(name, value, days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); // expires in 'days' days
-        const expires = `expires=${date.toUTCString()}`;
-        document.cookie = `${name}=${value}; ${expires}; path=/`; // Make sure the path is set to root
-    }
-
-    // Show the popup ad only if the cookie isn't set
-    window.onload = function() {
-        const popupShown = getCookie('popupShown');
-        if (!popupShown) {
-            popupAd.style.display = 'flex';
-        }
-    };
-    closeAdButton.addEventListener('click', function() {
-        popupAd.style.display = 'none';
-        setCookie('popupShown', 'true', 7);
-    });
 
     getFilesButton.addEventListener('click', function() {
         const albumUrl = albumUrlInput.value;
@@ -289,7 +243,6 @@
         URL.revokeObjectURL(url);
     });
 </script>
-
 
 </body>
 </html>
