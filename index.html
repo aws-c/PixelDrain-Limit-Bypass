@@ -144,6 +144,30 @@
     </style>
 </head>
 <body>
+    <!-- blog -->
+<div class="blog">
+    <h2>How To Use Properly?</h2>
+    <p>If you're aiming for high-speed downloads, it's advisable to utilize download managers such as 
+        <span style="color: #00fffb;"><b>JDownloader 2, FDM, IDM, etc.</b></span> as internet browsers lack support for multiple connections.
+    </p>
+    <p>
+        Furthermore, in <span style="color: red;"><b>JDownloader 2</b></span>, the Max.Chunks per Download (multiple connections) setting 
+        <b><span style="color: #fcff01;">Defaults to 1</span></b>. To enhance download speeds, you should adjust this setting.
+    </p>
+    <p>
+        To do so, navigate to <b><span style="color: #ff00fe;">Settings</span></b> =&gt; 
+        <b><span style="color: #ff00fe;">General in JDownloader 2</span></b>, and ensure that the number in the Max.Chunks per Download is 
+        <span style="color: #ff00a6;"><b>Set to a minimum of 4</b></span> (or up to the maximum value of 20) for optimal performance.
+    </p>
+    <p>
+        In other download managers, the default number of connections may vary, so you may want to consider increasing this number accordingly.
+    </p>
+    <h2>How We Bypass</h2>
+    <p>
+        To bypass the PixelDrain links, our Bypasser tool changes the original PixelDrain URLs into Our Servers URL.
+    </p>
+</div>
+    <!-- blog -->
 <div id="games4uorg">
     <div id="games4uorgContent">
         <h2>Check out our new site!</h2>
@@ -169,7 +193,7 @@
         <button id="getFilesButton">📥 Get Files</button>
         
         <h2>Extracted File URLs/Input URLs</h2>
-        <textarea id="inputUrls" placeholder="Enter URLs here, one per line..."></textarea>
+        <textarea id="inputUrls" placeholder="Enter PixelDrain URLs here, one per line (e.g., https://pixeldrain.com/u/your_file_id)."></textarea>
         <button id="convertButton">🔄 Convert URLs</button>
         <textarea id="outputUrls" placeholder="Converted URLs will appear here..." readonly></textarea>
         <button id="copyButton" class="neon-sky" style="display: none;">🔗 Copy URL</button>
